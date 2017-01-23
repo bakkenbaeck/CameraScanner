@@ -1,6 +1,6 @@
 import UIKit
 import AVFoundation
-import QReader
+import CameraScanner
 
 class ViewController: UIViewController {
 
