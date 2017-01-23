@@ -5,6 +5,13 @@ let ThemeDidChangeNotification = NSNotification.Name.init("ThemeDidChangeNotific
 
 /// Colours
 open class Theme {
+
+    public static var current = Theme() {
+        didSet {
+            NotificationCenter.default.post(name: ThemeDidChangeNotification, object: self)
+        }
+    }
+
     public static var overlayBackgroundColor: UIColor {
         return self.current.overlayBackgroundColor
     }
@@ -13,14 +20,12 @@ open class Theme {
         return self.current.overlayBackgroundOpacity
     }
 
-    public static var promptLabelTextColor: UIColor {
-        return self.current.promptLabelTextColor
+    public static var instructionsLabelTextColor: UIColor {
+        return self.current.instructionsLabelTextColor
     }
 
-    public static var current = Theme() {
-        didSet {
-            NotificationCenter.default.post(name: ThemeDidChangeNotification, object: self)
-        }
+    open static var instructionsLabelTextFont: UIFont {
+        return self.current.instructionsLabelTextFont
     }
 
     ///
@@ -28,20 +33,14 @@ open class Theme {
 
     open var overlayBackgroundOpacity: Float
 
-    open var promptLabelTextColor: UIColor
+    open var instructionsLabelTextColor: UIColor
 
-    public init(overlayBackgroundColor: UIColor = .black, overlayBackgroundOpacity: Float = 0.6, promptLabelTextColor: UIColor = .white) {
+    open var instructionsLabelTextFont: UIFont
+
+    public init(overlayBackgroundColor: UIColor = .black, overlayBackgroundOpacity: Float = 0.6, instructionsLabelTextColor: UIColor = .white, instructionsLabelTextFont: UIFont = .systemFont(ofSize: 16)) {
         self.overlayBackgroundColor = overlayBackgroundColor
-
         self.overlayBackgroundOpacity = overlayBackgroundOpacity
-
-        self.promptLabelTextColor = promptLabelTextColor
-    }
-}
-
-/// Fonts
-extension Theme {
-    open static var promptLabelTextFont: UIFont {
-        return .systemFont(ofSize: 16)
+        self.instructionsLabelTextColor = instructionsLabelTextColor
+        self.instructionsLabelTextFont = instructionsLabelTextFont
     }
 }

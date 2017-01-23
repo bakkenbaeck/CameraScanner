@@ -70,7 +70,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
      */
     public var running: Bool {
         get {
-            return session.isRunning
+            return self.session.isRunning
         }
     }
 
@@ -90,6 +90,15 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
      */
     public var isTorchAvailable: Bool {
         return self.defaultDevice?.isTorchAvailable == true
+    }
+
+    /**
+     Returns true if device has a torch/flashlight.
+
+     - returns: Bool indicating if a flashlight is available.
+     */
+    public var isFlashlightAvailable: Bool {
+        return self.isTorchAvailable
     }
 
     /**
@@ -170,15 +179,15 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     /// Starts scanning the codes.
-    public func startScanning() {
-        guard !session.isRunning else { return }
-        session.startRunning()
+    public func start() {
+        guard !self.session.isRunning else { return }
+        self.session.startRunning()
     }
 
     /// Stops scanning the codes.
-    public func stopScanning() {
-        guard session.isRunning else { return }
-        session.stopRunning()
+    public func stop() {
+        guard self.session.isRunning else { return }
+        self.session.stopRunning()
     }
 
     /// Toggles the torch on/off, if avaialable.
@@ -201,7 +210,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         for metadataObject in metadataObjects {
             guard let readableCodeObject = metadataObject as? AVMetadataMachineReadableCodeObject else { continue }
             if self.metadataObjectTypes.contains(readableCodeObject.type) {
-                stopScanning()
+                self.stop()
 
                 let scannedResult = readableCodeObject.stringValue
 

@@ -40,23 +40,23 @@ class ViewController: UIViewController {
 
     func presentScannerController() {
         let scanner = CameraScanner(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
-        let scannerController = ScannerViewController(prompt: "Scan a profile code or QR code", scanner: scanner)
+        let scannerController = ScannerViewController(instructions: "Scan a profile code or QR code", scanner: scanner)
         scannerController.delegate = self
         self.present(scannerController, animated: true) {
             let deadline: DispatchTime = DispatchTime.now() + Double(Int64(2.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
             DispatchQueue.main.asyncAfter(deadline: deadline) {
-                Theme.current = Theme(overlayBackgroundColor: .red, overlayBackgroundOpacity: 0.8, promptLabelTextColor: .magenta)
+                Theme.current = Theme(overlayBackgroundColor: .red, overlayBackgroundOpacity: 0.8, instructionsLabelTextColor: .magenta, instructionsLabelTextFont: .boldSystemFont(ofSize: 19))
             }
         }
     }
 }
 
 extension ViewController: ScannerViewControllerDelegate {
-    func scannerDidCancel(_ controller: ScannerViewController) {
+    func scannerViewControllerDidCancel(_ controller: ScannerViewController) {
         self.dismiss(animated: true)
     }
 
-    func scanner(_ controller: ScannerViewController, didScanResult result: String) {
+    func scannerViewController(_ controller: ScannerViewController, didScanResult result: String) {
         print(result)
     }
 }

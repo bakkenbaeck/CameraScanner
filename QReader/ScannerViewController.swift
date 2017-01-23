@@ -11,14 +11,14 @@ public protocol ScannerViewControllerDelegate: class {
      - parameter reader: A code reader object informing the delegate about the scan result.
      - parameter result: The result of the scan
      */
-    func scanner(_ controller: ScannerViewController, didScanResult result: String)
+    func scannerViewController(_ controller: ScannerViewController, didScanResult result: String)
 
     /**
      Tells the delegate that the user wants to stop scanning codes.
 
      - parameter reader: A code reader object informing the delegate about the cancellation.
      */
-    func scannerDidCancel(_ controller: ScannerViewController)
+    func scannerViewControllerDidCancel(_ controller: ScannerViewController)
 }
 
 
@@ -48,7 +48,7 @@ open class ScannerViewController: UIViewController {
         return view
     }()
 
-    lazy var promptLabel: UILabel = {
+    lazy var instructionsLabel: UILabel = {
         let view = UILabel()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.textAlignment = .center
@@ -65,20 +65,20 @@ open class ScannerViewController: UIViewController {
     open var completionBlock: ((String?) -> ())?
 
     deinit {
-        self.cameraScanner.stopScanning()
+        self.cameraScanner.stop()
         NotificationCenter.default.removeObserver(self)
     }
 
     /**
      Initializes the default scanner view controller. Can be used as a framework to implement your own custom controller.
 
-     - parameter prompt: A prompt string to explain to the user what they should do.
+     - parameter instructions: A string to explain to the user what they should do.
      - parameter coderReader: The code reader object used to scan the bar code.
      - parameter startScanningAtLoad: Flag to know whether the view controller start scanning the codes when the view will appear.
      - parameter showSwitchCameraButton: Flag to display the switch camera button.
      - parameter showTorchButton: Flag to display the toggle torch button. If the value is true and there is no torch the button will not be displayed.
      */
-    public required init(prompt: String = "Scan a QR code", scanner: CameraScanner, startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false) {
+    public required init(instructions: String = "Scan a QR code", scanner: CameraScanner, startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false) {
         self.startScanningAtLoad = startsScanning
         self.cameraScanner = scanner
 
@@ -90,11 +90,11 @@ open class ScannerViewController: UIViewController {
             self?.completionBlock?(resultAsString)
 
             if let resultAsString = resultAsString {
-                self?.delegate?.scanner(self!, didScanResult: resultAsString)
+                self?.delegate?.scannerViewController(self!, didScanResult: resultAsString)
             }
         }
 
-        self.promptLabel.text = prompt
+        self.instructionsLabel.text = instructions
 
         NotificationCenter.default.addObserver(self, selector: #selector(ScannerViewController.orientationDidChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: ThemeDidChangeNotification, object: Theme.self)
@@ -135,8 +135,8 @@ open class ScannerViewController: UIViewController {
     }
 
     func updateTheme() {
-        self.promptLabel.textColor = Theme.promptLabelTextColor
-        self.promptLabel.font = Theme.promptLabelTextFont
+        self.instructionsLabel.textColor = Theme.instructionsLabelTextColor
+        self.instructionsLabel.font = Theme.instructionsLabelTextFont
     }
 
     // MARK: - Managing the Orientation
@@ -155,7 +155,7 @@ open class ScannerViewController: UIViewController {
 
     fileprivate func setupViewsAndConstraints() {
         self.view.addSubview(self.cameraView)
-        self.view.addSubview(self.promptLabel)
+        self.view.addSubview(self.instructionsLabel)
         self.view.addSubview(self.toolbar)
 
         self.cameraScanner.previewLayer.frame = self.view.bounds
@@ -175,30 +175,30 @@ open class ScannerViewController: UIViewController {
         self.cameraView.rightAnchor.constraint(equalTo: self.view.rightAnchor).isActive = true
         self.cameraView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor).isActive = true
 
-        self.promptLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
-        self.promptLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
-        self.promptLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80).isActive = true
+        self.instructionsLabel.leftAnchor.constraint(equalTo: self.view.leftAnchor, constant: 20).isActive = true
+        self.instructionsLabel.rightAnchor.constraint(equalTo: self.view.rightAnchor, constant: -20).isActive = true
+        self.instructionsLabel.bottomAnchor.constraint(equalTo: self.view.bottomAnchor, constant: -80).isActive = true
     }
 
     // MARK: - Controlling the Reader
 
     /// Starts scanning the codes.
     open func startScanning() {
-        self.cameraScanner.startScanning()
+        self.cameraScanner.start()
     }
 
     /// Stops scanning the codes.
     open func stopScanning() {
-        self.cameraScanner.stopScanning()
+        self.cameraScanner.stop()
     }
 
     // MARK: - Catching Button Events
 
     func cancelAction(_ button: UIButton) {
-        self.cameraScanner.stopScanning()
+        self.cameraScanner.stop()
 
         self.completionBlock?(nil)
-        self.delegate?.scannerDidCancel(self)
+        self.delegate?.scannerViewControllerDidCancel(self)
     }
 
     func switchCameraAction() {
