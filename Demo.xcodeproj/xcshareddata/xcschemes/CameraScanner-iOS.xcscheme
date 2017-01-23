@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "0820"
+   LastUpgradeVersion = "0800"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -14,10 +14,10 @@
             buildForAnalyzing = "YES">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "9F3144DB1E35F3340019B304"
+               BlueprintIdentifier = "149D81511DBD2ADD00A9EB1A"
                BuildableName = "CameraScanner.framework"
-               BlueprintName = "CameraScanner"
-               ReferencedContainer = "container:CameraScanner.xcodeproj">
+               BlueprintName = "CameraScanner-iOS"
+               ReferencedContainer = "container:Demo.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -45,12 +45,19 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F3144DB1E35F3340019B304"
+            BlueprintIdentifier = "149D81511DBD2ADD00A9EB1A"
             BuildableName = "CameraScanner.framework"
-            BlueprintName = "CameraScanner"
-            ReferencedContainer = "container:CameraScanner.xcodeproj">
+            BlueprintName = "CameraScanner-iOS"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
+      <EnvironmentVariables>
+         <EnvironmentVariable
+            key = "OS_ACTIVITY_MODE"
+            value = "disable"
+            isEnabled = "YES">
+         </EnvironmentVariable>
+      </EnvironmentVariables>
       <AdditionalOptions>
       </AdditionalOptions>
    </LaunchAction>
@@ -63,10 +70,10 @@
       <MacroExpansion>
          <BuildableReference
             BuildableIdentifier = "primary"
-            BlueprintIdentifier = "9F3144DB1E35F3340019B304"
+            BlueprintIdentifier = "149D81511DBD2ADD00A9EB1A"
             BuildableName = "CameraScanner.framework"
-            BlueprintName = "CameraScanner"
-            ReferencedContainer = "container:CameraScanner.xcodeproj">
+            BlueprintName = "CameraScanner-iOS"
+            ReferencedContainer = "container:Demo.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
    </ProfileAction>

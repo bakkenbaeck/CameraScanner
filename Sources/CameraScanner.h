@@ -1,4 +1,4 @@
-#import <UIKit/UIKit.h>
+@import UIKit;
 
 //! Project version number for CameraScanner.
 FOUNDATION_EXPORT double CameraScannerVersionNumber;
