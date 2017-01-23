@@ -1,7 +1,105 @@
 import Foundation
 import AVFoundation
 
-/// The actual scanner. Deals with the lower level capture details. 
+public enum MetadataObjectType: String {
+    case face
+
+    case qrCode
+
+    case ean8Code
+
+    case ean13Code
+
+    case upceCode
+
+    case aztecCode
+
+    case itf14Code
+
+    case code39Code
+
+    case code39Mod43Code
+
+    case code93Code
+
+    case code128Code
+
+    case pdf417Code
+
+    case dataMatrixCode
+
+    case interleaved2of5Code
+
+    public init(rawValue: String) {
+        switch rawValue {
+        case AVMetadataObjectTypeFace:
+            self = .face
+        case AVMetadataObjectTypeQRCode:
+            self = .qrCode
+        case AVMetadataObjectTypeEAN8Code:
+            self = .ean8Code
+        case AVMetadataObjectTypeEAN13Code:
+            self = .ean13Code
+        case AVMetadataObjectTypeUPCECode:
+            self = .upceCode
+        case AVMetadataObjectTypeAztecCode:
+            self = .aztecCode
+        case AVMetadataObjectTypeITF14Code:
+            self = .itf14Code
+        case AVMetadataObjectTypeCode39Code:
+            self = .code39Code
+        case AVMetadataObjectTypeCode39Mod43Code:
+            self = .code39Mod43Code
+        case AVMetadataObjectTypeCode93Code:
+            self = .code93Code
+        case AVMetadataObjectTypeCode128Code:
+            self = .code128Code
+        case AVMetadataObjectTypePDF417Code:
+            self = .pdf417Code
+        case AVMetadataObjectTypeDataMatrixCode: 
+            self = .dataMatrixCode
+        case AVMetadataObjectTypeInterleaved2of5Code: 
+            self = .interleaved2of5Code
+        default:
+            fatalError("Tried to initialise a MetadataObjectType with an invalid paremeter.")
+        }
+    }
+
+    public var metadataObjectTypeValue: String {
+        switch self {
+        case .face:
+            return AVMetadataObjectTypeFace
+        case .qrCode:
+            return AVMetadataObjectTypeQRCode
+        case .ean8Code:
+            return AVMetadataObjectTypeEAN8Code
+        case .ean13Code:
+            return AVMetadataObjectTypeEAN13Code
+        case .upceCode:
+            return AVMetadataObjectTypeUPCECode
+        case .aztecCode:
+            return AVMetadataObjectTypeAztecCode
+        case .itf14Code:
+            return AVMetadataObjectTypeITF14Code
+        case .code39Code:
+            return AVMetadataObjectTypeCode39Code
+        case .code39Mod43Code:
+            return AVMetadataObjectTypeCode39Mod43Code
+        case .code93Code:
+            return AVMetadataObjectTypeCode93Code
+        case .code128Code:
+            return AVMetadataObjectTypeCode128Code
+        case .pdf417Code:
+            return AVMetadataObjectTypePDF417Code
+        case .dataMatrixCode:
+            return AVMetadataObjectTypeDataMatrixCode
+        case .interleaved2of5Code:
+            return AVMetadataObjectTypeInterleaved2of5Code
+        }
+    }
+}
+
+/// The actual scanner. Deals with the lower level capture details.
 /// Since it accesses the cameras, it's necessary to add NSCameraUsageDescription to the Info.plist of your app.
 open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
@@ -30,7 +128,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
      - returns: Bool indicating if the device supports the given metadata object types.
      */
-    public class func supportsMetadataObjectTypes(_ metadataTypes: [String] = [AVMetadataObjectTypeQRCode]) -> Bool {
+    public class func supportsMetadataObjectTypes(_ metadataTypes: [MetadataObjectType] = [.qrCode]) -> Bool {
         if !self.isAvailable {
             return false
         }
@@ -45,8 +143,8 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         session.addInput(deviceInput)
         session.addOutput(output)
 
-        for metadataObjectType in metadataTypes {
-            return output.availableMetadataObjectTypes.contains { (type: Any) -> Bool in (type as? String) == metadataObjectType }
+        for type in metadataTypes {
+            return output.availableMetadataObjectTypes.contains { (metadataObjectType: Any) -> Bool in (metadataObjectType as? String) == type.metadataObjectTypeValue }
         }
         
         return false
@@ -59,6 +157,12 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     /// An array of strings identifying the types of metadata objects to process. Conforms to `AVMetadataObjectType` naming convention.
     /// Example: AVMetadataObjectTypeFace, AVMetadataObjectTypeQRCode
     open let metadataObjectTypes: [String]
+
+    open var currentMetadataTypes: [MetadataObjectType] {
+        return metadataObjectTypes.map { type -> MetadataObjectType in
+            return MetadataObjectType(rawValue: type)
+        }
+    }
 
     /// Block is executing when a QRCode or when the user did stopped the scan.
     open var completionBlock: ((String?) -> ())?
@@ -142,8 +246,8 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
     open var session = AVCaptureSession()
 
-    public init(metadataObjectTypes types: [String]) {
-        self.metadataObjectTypes = types
+    public init(types: [MetadataObjectType]) {
+        self.metadataObjectTypes = types.map{ (type) -> String in type.metadataObjectTypeValue }
 
         super.init()
 

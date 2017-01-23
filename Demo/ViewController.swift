@@ -39,10 +39,13 @@ class ViewController: UIViewController {
     }
 
     func presentScannerController() {
-        let scanner = CameraScanner(metadataObjectTypes: [AVMetadataObjectTypeQRCode])
+        let scanner = CameraScanner(types: [.qrCode])
         let scannerController = ScannerViewController(instructions: "Scan a profile code or QR code", scanner: scanner)
         scannerController.delegate = self
+
         self.present(scannerController, animated: true) {
+
+            // Demo updating current theme on the fly.
             let deadline: DispatchTime = DispatchTime.now() + Double(Int64(2.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
             DispatchQueue.main.asyncAfter(deadline: deadline) {
                 Theme.current = Theme(overlayBackgroundColor: .red, overlayBackgroundOpacity: 0.8, instructionsLabelTextColor: .magenta, instructionsLabelTextFont: .boldSystemFont(ofSize: 19))
