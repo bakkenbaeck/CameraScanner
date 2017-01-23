@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F3144E11E35F3340019B304 /* QReader.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3144DF1E35F3340019B304 /* QReader.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		9F3144E11E35F3340019B304 /* CameraScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3144DF1E35F3340019B304 /* CameraScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F3144E91E35F35E0019B304 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144E81E35F35E0019B304 /* CameraScanner.swift */; };
 		9F3144EB1E35FC890019B304 /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */; };
 		9F3144ED1E35FCEE0019B304 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144EC1E35FCEE0019B304 /* Theme.swift */; };
@@ -16,8 +16,8 @@
 		9F3144F91E360E010019B304 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144F81E360E010019B304 /* ViewController.swift */; };
 		9F3144FE1E360E010019B304 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F3144FD1E360E010019B304 /* Assets.xcassets */; };
 		9F3145011E360E010019B304 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9F3144FF1E360E010019B304 /* LaunchScreen.storyboard */; };
-		9F3145061E360E870019B304 /* QReader.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* QReader.framework */; };
-		9F3145081E360E950019B304 /* QReader.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* QReader.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		9F3145061E360E870019B304 /* CameraScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* CameraScanner.framework */; };
+		9F3145081E360E950019B304 /* CameraScanner.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* CameraScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F31450B1E3610170019B304 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F31450A1E3610170019B304 /* AVFoundation.framework */; };
 /* End PBXBuildFile section */
 
@@ -28,7 +28,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				9F3145081E360E950019B304 /* QReader.framework in Copy Frameworks */,
+				9F3145081E360E950019B304 /* CameraScanner.framework in Copy Frameworks */,
 			);
 			name = "Copy Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -36,8 +36,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9F3144DC1E35F3340019B304 /* QReader.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = QReader.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F3144DF1E35F3340019B304 /* QReader.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = QReader.h; sourceTree = "<group>"; };
+		9F3144DC1E35F3340019B304 /* CameraScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9F3144DF1E35F3340019B304 /* CameraScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraScanner.h; sourceTree = "<group>"; };
 		9F3144E01E35F3340019B304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3144E81E35F35E0019B304 /* CameraScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
@@ -65,7 +65,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F3145061E360E870019B304 /* QReader.framework in Frameworks */,
+				9F3145061E360E870019B304 /* CameraScanner.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,7 +75,7 @@
 		9F3144D21E35F3340019B304 = {
 			isa = PBXGroup;
 			children = (
-				9F3144DE1E35F3340019B304 /* QReader */,
+				9F3144DE1E35F3340019B304 /* CameraScanner */,
 				9F3144F51E360E010019B304 /* Demo */,
 				9F3144DD1E35F3340019B304 /* Products */,
 				9F3145091E3610170019B304 /* Frameworks */,
@@ -85,13 +85,13 @@
 		9F3144DD1E35F3340019B304 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				9F3144DC1E35F3340019B304 /* QReader.framework */,
+				9F3144DC1E35F3340019B304 /* CameraScanner.framework */,
 				9F3144F41E360E010019B304 /* Demo.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		9F3144DE1E35F3340019B304 /* QReader */ = {
+		9F3144DE1E35F3340019B304 /* CameraScanner */ = {
 			isa = PBXGroup;
 			children = (
 				9F3144E71E35F3550019B304 /* Resources */,
@@ -100,13 +100,13 @@
 				9F3144EE1E3608DF0019B304 /* ScannerViewController.swift */,
 				9F3144EC1E35FCEE0019B304 /* Theme.swift */,
 			);
-			path = QReader;
+			path = CameraScanner;
 			sourceTree = "<group>";
 		};
 		9F3144E71E35F3550019B304 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				9F3144DF1E35F3340019B304 /* QReader.h */,
+				9F3144DF1E35F3340019B304 /* CameraScanner.h */,
 				9F3144E01E35F3340019B304 /* Info.plist */,
 			);
 			name = Resources;
@@ -139,16 +139,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F3144E11E35F3340019B304 /* QReader.h in Headers */,
+				9F3144E11E35F3340019B304 /* CameraScanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9F3144DB1E35F3340019B304 /* QReader */ = {
+		9F3144DB1E35F3340019B304 /* CameraScanner */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 9F3144E41E35F3340019B304 /* Build configuration list for PBXNativeTarget "QReader" */;
+			buildConfigurationList = 9F3144E41E35F3340019B304 /* Build configuration list for PBXNativeTarget "CameraScanner" */;
 			buildPhases = (
 				9F3144D71E35F3340019B304 /* Sources */,
 				9F3144D81E35F3340019B304 /* Frameworks */,
@@ -159,9 +159,9 @@
 			);
 			dependencies = (
 			);
-			name = QReader;
+			name = CameraScanner;
 			productName = QReader;
-			productReference = 9F3144DC1E35F3340019B304 /* QReader.framework */;
+			productReference = 9F3144DC1E35F3340019B304 /* CameraScanner.framework */;
 			productType = "com.apple.product-type.framework";
 		};
 		9F3144F31E360E010019B304 /* Demo */ = {
@@ -205,7 +205,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 9F3144D61E35F3340019B304 /* Build configuration list for PBXProject "QReader" */;
+			buildConfigurationList = 9F3144D61E35F3340019B304 /* Build configuration list for PBXProject "CameraScanner" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -218,7 +218,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				9F3144DB1E35F3340019B304 /* QReader */,
+				9F3144DB1E35F3340019B304 /* CameraScanner */,
 				9F3144F31E360E010019B304 /* Demo */,
 			);
 		};
@@ -387,10 +387,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QReader/Info.plist;
+				INFOPLIST_FILE = CameraScanner/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = no.bakkenbaeck.QReader;
+				PRODUCT_BUNDLE_IDENTIFIER = no.bakkenbaeck.CameraScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -408,10 +408,10 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = QReader/Info.plist;
+				INFOPLIST_FILE = CameraScanner/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = no.bakkenbaeck.QReader;
+				PRODUCT_BUNDLE_IDENTIFIER = no.bakkenbaeck.CameraScanner;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 3.0;
@@ -447,7 +447,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9F3144D61E35F3340019B304 /* Build configuration list for PBXProject "QReader" */ = {
+		9F3144D61E35F3340019B304 /* Build configuration list for PBXProject "CameraScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F3144E21E35F3340019B304 /* Debug */,
@@ -456,13 +456,14 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		9F3144E41E35F3340019B304 /* Build configuration list for PBXNativeTarget "QReader" */ = {
+		9F3144E41E35F3340019B304 /* Build configuration list for PBXNativeTarget "CameraScanner" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				9F3144E51E35F3340019B304 /* Debug */,
 				9F3144E61E35F3340019B304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9F3145031E360E010019B304 /* Build configuration list for PBXNativeTarget "Demo" */ = {
 			isa = XCConfigurationList;
@@ -471,6 +472,7 @@
 				9F3145051E360E010019B304 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
