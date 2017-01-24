@@ -21,7 +21,6 @@
 		9F31450B1E3610170019B304 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F31450A1E3610170019B304 /* AVFoundation.framework */; };
 		9F40C0851E3751A7009984D1 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40C0841E3751A7009984D1 /* AssetManager.swift */; };
 		9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F40C0801E37486D009984D1 /* Buttons.xcassets */; };
-		9FA706211E3768F2004491F8 /* ScannerSubclassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */; };
 		9FA706251E376E2D004491F8 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA706241E376E2D004491F8 /* Reveal.framework */; };
 /* End PBXBuildFile section */
 
@@ -66,7 +65,6 @@
 		9F31450A1E3610170019B304 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		9F40C0801E37486D009984D1 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
 		9F40C0841E3751A7009984D1 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
-		9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerSubclassViewController.swift; sourceTree = "<group>"; };
 		9FA706241E376E2D004491F8 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -141,7 +139,6 @@
 				9F3144FD1E360E010019B304 /* Assets.xcassets */,
 				9F3144FF1E360E010019B304 /* LaunchScreen.storyboard */,
 				9F3145021E360E010019B304 /* Info.plist */,
-				9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */,
 				9FA706241E376E2D004491F8 /* Reveal.framework */,
 			);
 			path = Demo;
@@ -287,7 +284,6 @@
 			files = (
 				9F3144F91E360E010019B304 /* ViewController.swift in Sources */,
 				9F3144F71E360E010019B304 /* AppDelegate.swift in Sources */,
-				9FA706211E3768F2004491F8 /* ScannerSubclassViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
