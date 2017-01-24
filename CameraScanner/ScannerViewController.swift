@@ -27,31 +27,27 @@ open class ScannerViewController: UIViewController {
         return .lightContent
     }
 
-    fileprivate var cameraView: ScannerOverlayView
+    open var cameraView: ScannerOverlayView
 
-    fileprivate lazy var cancelItem: UIBarButtonItem = {
+    open lazy var cancelItem: UIBarButtonItem = {
         let item = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(ScannerViewController.cancelAction))
 
         return item
     }()
 
-    fileprivate lazy var torchItem: UIBarButtonItem = {
+    open lazy var torchItem: UIBarButtonItem = {
         let image = AssetManager.torchImage
         let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(ScannerViewController.toggleTorchAction))
 
         return item
     }()
 
-    fileprivate lazy var toolbar: UIToolbar = {
+    open lazy var toolbar: UIToolbar = {
         let view = UIToolbar()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.barStyle = .black
-        view.tintColor = .white
+        view.barStyle = Theme.toolbarStyle
+        view.tintColor = Theme.toolbarTintColor
         view.delegate = self
-
-        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
-
-        view.items = [self.cancelItem, space, self.torchItem]
 
         return view
     }()
@@ -145,6 +141,14 @@ open class ScannerViewController: UIViewController {
     func updateTheme() {
         self.instructionsLabel.textColor = Theme.instructionsLabelTextColor
         self.instructionsLabel.font = Theme.instructionsLabelTextFont
+
+        self.setupToolbarItems()
+    }
+
+    open func setupToolbarItems() {
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        self.toolbar.setItems( [self.cancelItem, space, self.torchItem], animated: true)
     }
 
     // MARK: - Managing the Orientation

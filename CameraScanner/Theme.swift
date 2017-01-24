@@ -28,7 +28,16 @@ open class Theme {
         return self.current.instructionsLabelTextFont
     }
 
-    ///
+    public static var toolbarTintColor: UIColor {
+        return self.current.toolbarTintColor
+    }
+
+    public static var toolbarStyle: UIBarStyle {
+        return self.current.toolbarStyle
+    }
+
+    /// MARK: Internal representations
+
     open var overlayBackgroundColor: UIColor
 
     open var overlayBackgroundOpacity: Float
@@ -37,10 +46,18 @@ open class Theme {
 
     open var instructionsLabelTextFont: UIFont
 
-    public init(overlayBackgroundColor: UIColor = .black, overlayBackgroundOpacity: Float = 0.6, instructionsLabelTextColor: UIColor = .white, instructionsLabelTextFont: UIFont = .systemFont(ofSize: 16)) {
+    open var toolbarStyle: UIBarStyle
+
+    open var toolbarTintColor: UIColor
+
+    public init(overlayBackgroundColor: UIColor = .black, overlayBackgroundOpacity: Float = 0.6, instructionsLabelTextColor: UIColor = .white, instructionsLabelTextFont: UIFont = .systemFont(ofSize: 16), toolbarStyle: UIBarStyle = .black, toolbarTintColor: UIColor = .white) {
         self.overlayBackgroundColor = overlayBackgroundColor
         self.overlayBackgroundOpacity = overlayBackgroundOpacity
+
         self.instructionsLabelTextColor = instructionsLabelTextColor
         self.instructionsLabelTextFont = instructionsLabelTextFont
+
+        self.toolbarStyle = toolbarStyle
+        self.toolbarTintColor = toolbarTintColor
     }
 }
