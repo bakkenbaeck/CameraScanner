@@ -82,7 +82,7 @@ open class ScannerViewController: UIViewController {
         self.startScanningAtLoad = startsScanning
         self.cameraScanner = scanner
 
-        self.cameraView = ScannerOverlayView(cameraLayer: self.cameraScanner.previewLayer)
+        self.cameraView = ScannerOverlayView(cameraLayer: self.cameraScanner.previewLayer ?? CALayer())
 
         super.init(nibName: nil, bundle: nil)
 
@@ -131,7 +131,7 @@ open class ScannerViewController: UIViewController {
     open override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        self.cameraScanner.previewLayer.frame = self.cameraView.bounds
+        self.cameraScanner.previewLayer?.frame = self.cameraView.bounds
     }
 
     func updateTheme() {
@@ -144,10 +144,10 @@ open class ScannerViewController: UIViewController {
     func orientationDidChanged(_ notification: Notification) {
         self.cameraView.setNeedsDisplay()
 
-        if self.cameraScanner.previewLayer.connection != nil {
+        if self.cameraScanner.previewLayer?.connection != nil {
             let orientation = UIApplication.shared.statusBarOrientation
 
-            self.cameraScanner.previewLayer.connection.videoOrientation = CameraScanner.videoOrientationFromInterfaceOrientation(orientation)
+            self.cameraScanner.previewLayer?.connection.videoOrientation = CameraScanner.videoOrientationFromInterfaceOrientation(orientation)
         }
     }
 
@@ -158,11 +158,11 @@ open class ScannerViewController: UIViewController {
         self.view.addSubview(self.instructionsLabel)
         self.view.addSubview(self.toolbar)
 
-        self.cameraScanner.previewLayer.frame = self.view.bounds
+        self.cameraScanner.previewLayer?.frame = self.view.bounds
 
-        if self.cameraScanner.previewLayer.connection.isVideoOrientationSupported {
+        if let connection = self.cameraScanner.previewLayer?.connection, connection.isVideoOrientationSupported {
             let orientation = UIApplication.shared.statusBarOrientation
-            self.cameraScanner.previewLayer.connection.videoOrientation = CameraScanner.videoOrientationFromInterfaceOrientation(orientation)
+            self.cameraScanner.previewLayer?.connection.videoOrientation = CameraScanner.videoOrientationFromInterfaceOrientation(orientation)
         }
 
         self.toolbar.topAnchor.constraint(equalTo: self.topLayoutGuide.bottomAnchor).isActive = true
