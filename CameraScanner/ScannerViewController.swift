@@ -21,7 +21,6 @@ public protocol ScannerViewControllerDelegate: class {
     func scannerViewControllerDidCancel(_ controller: ScannerViewController)
 }
 
-
 open class ScannerViewController: UIViewController {
 
     open override var preferredStatusBarStyle: UIStatusBarStyle {
