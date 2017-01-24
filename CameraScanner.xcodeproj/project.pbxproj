@@ -137,11 +137,11 @@
 			isa = PBXGroup;
 			children = (
 				9F3144F61E360E010019B304 /* AppDelegate.swift */,
+				9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */,
 				9F3144F81E360E010019B304 /* ViewController.swift */,
 				9F3144FD1E360E010019B304 /* Assets.xcassets */,
 				9F3144FF1E360E010019B304 /* LaunchScreen.storyboard */,
 				9F3145021E360E010019B304 /* Info.plist */,
-				9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */,
 				9FA706241E376E2D004491F8 /* Reveal.framework */,
 			);
 			path = Demo;
