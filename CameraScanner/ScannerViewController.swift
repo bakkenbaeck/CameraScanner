@@ -35,6 +35,13 @@ open class ScannerViewController: UIViewController {
         return item
     }()
 
+    fileprivate lazy var torchItem: UIBarButtonItem = {
+        let image = AssetManager.torchImage
+        let item = UIBarButtonItem(image: image, style: .plain, target: self, action: #selector(ScannerViewController.toggleTorchAction))
+
+        return item
+    }()
+
     fileprivate lazy var toolbar: UIToolbar = {
         let view = UIToolbar()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -42,7 +49,9 @@ open class ScannerViewController: UIViewController {
         view.tintColor = .white
         view.delegate = self
 
-        view.items = [self.cancelItem]
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+
+        view.items = [self.cancelItem, space, self.torchItem]
 
         return view
     }()

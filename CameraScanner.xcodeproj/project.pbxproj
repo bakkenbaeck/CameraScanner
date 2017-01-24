@@ -19,7 +19,19 @@
 		9F3145061E360E870019B304 /* CameraScanner.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* CameraScanner.framework */; };
 		9F3145081E360E950019B304 /* CameraScanner.framework in Copy Frameworks */ = {isa = PBXBuildFile; fileRef = 9F3144DC1E35F3340019B304 /* CameraScanner.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9F31450B1E3610170019B304 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F31450A1E3610170019B304 /* AVFoundation.framework */; };
+		9F40C0851E3751A7009984D1 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40C0841E3751A7009984D1 /* AssetManager.swift */; };
+		9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F40C0801E37486D009984D1 /* Buttons.xcassets */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		9F40C0821E374F01009984D1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9F3144D31E35F3340019B304 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9F3144DB1E35F3340019B304;
+			remoteInfo = CameraScanner;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
 		9F3145071E360E8C0019B304 /* Copy Frameworks */ = {
@@ -50,6 +62,8 @@
 		9F3145001E360E010019B304 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		9F3145021E360E010019B304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F31450A1E3610170019B304 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9F40C0801E37486D009984D1 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
+		9F40C0841E3751A7009984D1 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -94,11 +108,13 @@
 		9F3144DE1E35F3340019B304 /* CameraScanner */ = {
 			isa = PBXGroup;
 			children = (
+				9F40C0801E37486D009984D1 /* Buttons.xcassets */,
 				9F3144E71E35F3550019B304 /* Resources */,
 				9F3144E81E35F35E0019B304 /* CameraScanner.swift */,
 				9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */,
 				9F3144EE1E3608DF0019B304 /* ScannerViewController.swift */,
 				9F3144EC1E35FCEE0019B304 /* Theme.swift */,
+				9F40C0841E3751A7009984D1 /* AssetManager.swift */,
 			);
 			path = CameraScanner;
 			sourceTree = "<group>";
@@ -176,6 +192,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				9F40C0831E374F01009984D1 /* PBXTargetDependency */,
 			);
 			name = Demo;
 			productName = Demo;
@@ -229,6 +246,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -251,6 +269,7 @@
 				9F3144ED1E35FCEE0019B304 /* Theme.swift in Sources */,
 				9F3144EB1E35FC890019B304 /* ScannerOverlayView.swift in Sources */,
 				9F3144E91E35F35E0019B304 /* CameraScanner.swift in Sources */,
+				9F40C0851E3751A7009984D1 /* AssetManager.swift in Sources */,
 				9F3144EF1E3608DF0019B304 /* ScannerViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -265,6 +284,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9F40C0831E374F01009984D1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9F3144DB1E35F3340019B304 /* CameraScanner */;
+			targetProxy = 9F40C0821E374F01009984D1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9F3144FF1E360E010019B304 /* LaunchScreen.storyboard */ = {
@@ -300,9 +327,10 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
+				ENABLE_ONLY_ACTIVE_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -353,10 +381,11 @@
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				EMBED_ASSET_PACKS_IN_PRODUCT_BUNDLE = YES;
 				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_ONLY_ACTIVE_RESOURCES = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -382,6 +411,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 29X3GG489T;
 				DYLIB_COMPATIBILITY_VERSION = 1;
@@ -403,6 +433,7 @@
 			buildSettings = {
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = 29X3GG489T;
 				DYLIB_COMPATIBILITY_VERSION = 1;
