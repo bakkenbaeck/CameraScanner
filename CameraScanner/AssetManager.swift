@@ -2,8 +2,19 @@ import UIKit
 
 open class AssetManager {
     open class var torchImage: UIImage? {
-        let bundle = Bundle(for: self)
-        return UIImage(named: "Torch", in: bundle, compatibleWith: nil)
+        return UIImage(named: "Torch", in: self.bundle, compatibleWith: nil)
+    }
+
+    open class var cameraImage: UIImage? {
+        return UIImage(named: "Camera", in: self.bundle, compatibleWith: nil)
+    }
+
+    open class var cornerImage: UIImage? {
+        return UIImage(named: "Corner", in: self.bundle, compatibleWith: nil)
+    }
+
+    class var bundle: Bundle {
+        return Bundle(for: self)
     }
 }
 
