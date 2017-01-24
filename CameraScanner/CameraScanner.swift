@@ -152,7 +152,9 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
 
     /// CALayer that displays the video stream as it is being captured by the input device.
-    open lazy var previewLayer: AVCaptureVideoPreviewLayer = AVCaptureVideoPreviewLayer(session: self.session)
+    open lazy var previewLayer: AVCaptureVideoPreviewLayer? = {
+        return AVCaptureVideoPreviewLayer(session: self.session)
+    }()
 
     /// An array of strings identifying the types of metadata objects to process. Conforms to `AVMetadataObjectType` naming convention.
     /// Example: AVMetadataObjectTypeFace, AVMetadataObjectTypeQRCode
@@ -247,7 +249,11 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     open var session = AVCaptureSession()
 
     public init(types: [MetadataObjectType]) {
-        self.metadataObjectTypes = types.map{ (type) -> String in type.metadataObjectTypeValue }
+        if CameraScanner.isAvailable {
+            self.metadataObjectTypes = types.map{ (type) -> String in type.metadataObjectTypeValue }
+        } else {
+            self.metadataObjectTypes = []
+        }
 
         super.init()
 
@@ -263,7 +269,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
         self.metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
         self.metadataOutput.metadataObjectTypes = self.metadataObjectTypes
-        self.previewLayer.videoGravity = AVLayerVideoGravityResizeAspectFill
+        self.previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
     }
 
     /// Switch between back and front camera.
@@ -284,7 +290,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
     /// Starts scanning the codes.
     public func start() {
-        guard !self.session.isRunning else { return }
+        guard CameraScanner.isAvailable && !self.session.isRunning else { return }
         self.session.startRunning()
     }
 
