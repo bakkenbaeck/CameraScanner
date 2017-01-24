@@ -11,7 +11,9 @@ open class ScannerOverlayView: UIView {
     lazy var cornerTopRightImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
         view.transform = view.transform.rotated(by: CGFloat(270.0 * M_PI / 180.0))
-        view.restorationIdentifier = "cornerTopRightImageView"
+
+        // We set the restorationIdentifier here to more easily debug and adjust view positioning.
+        view.restorationIdentifier = "CornerTopRightImageView"
 
         view.clipsToBounds = true
         return view
@@ -20,7 +22,9 @@ open class ScannerOverlayView: UIView {
     lazy var cornerTopLeftImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
         view.transform = view.transform.rotated(by: CGFloat(180.0 * M_PI / 180.0))
-        view.restorationIdentifier = "cornerTopLeftImageView"
+
+        // We set the restorationIdentifier here to more easily debug and adjust view positioning.
+        view.restorationIdentifier = "CornerTopLeftImageView"
 
         view.clipsToBounds = true
         return view
@@ -29,7 +33,9 @@ open class ScannerOverlayView: UIView {
     lazy var cornerBottomLeftImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
         view.transform = view.transform.rotated(by: CGFloat(90.0 * M_PI / 180.0))
-        view.restorationIdentifier = "cornerBottomLeftImageView"
+
+        // We set the restorationIdentifier here to more easily debug and adjust view positioning.
+        view.restorationIdentifier = "CornerBottomLeftImageView"
 
         view.clipsToBounds = true
         return view
@@ -37,7 +43,9 @@ open class ScannerOverlayView: UIView {
 
     lazy var cornerBottomRightImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
-        view.restorationIdentifier = "cornerBottomRightImageView"
+
+        // We set the restorationIdentifier here to more easily debug and adjust view positioning.
+        view.restorationIdentifier = "CornerBottomRightImageView"
 
         view.clipsToBounds = true
         return view
