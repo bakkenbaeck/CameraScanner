@@ -39,8 +39,7 @@ class ViewController: UIViewController {
     }
 
     func presentScannerController() {
-        let scanner = CameraScanner(types: [.qrCode])
-        let scannerController = ScannerSubclassViewController(instructions: "Scan a profile code or QR code", scanner: scanner)
+        let scannerController = ScannerSubclassViewController(instructions: "Scan a profile code or QR code", types: [.qrCode])
         scannerController.delegate = self
 
         self.present(scannerController, animated: true) {
