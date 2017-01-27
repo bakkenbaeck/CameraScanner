@@ -1,4 +1,5 @@
 import UIKit
+import AVFoundation
 
 open class ScannerOverlayView: UIView {
 

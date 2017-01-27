@@ -82,23 +82,20 @@ open class ScannerViewController: UIViewController {
      - parameter showSwitchCameraButton: Flag to display the switch camera button.
      - parameter showTorchButton: Flag to display the toggle torch button. If the value is true and there is no torch the button will not be displayed.
      */
-    public required init(instructions: String = "Scan a QR code", scanner: CameraScanner, startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false) {
+    public required init(instructions: String = "Scan a QR code", types: [MetadataObjectType], startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false) {
         self.startScanningAtLoad = startsScanning
-        self.cameraScanner = scanner
 
+        self.cameraScanner = CameraScanner(types: types)
         self.cameraView = ScannerOverlayView(cameraLayer: self.cameraScanner.previewLayer ?? CALayer())
 
         super.init(nibName: nil, bundle: nil)
 
-        self.cameraScanner.completionBlock = { [weak self] (resultAsString) in
-            self?.completionBlock?(resultAsString)
-
-            if let resultAsString = resultAsString {
-                self?.delegate?.scannerViewController(self!, didScanResult: resultAsString)
-            }
-        }
-
         self.instructionsLabel.text = instructions
+
+        self.cameraScanner.completionBlock = { value in
+            self.delegate?.scannerViewController(self, didScanResult: value)
+            self.completionBlock?(value)
+        }
 
         NotificationCenter.default.addObserver(self, selector: #selector(ScannerViewController.orientationDidChanged(_:)), name: .UIDeviceOrientationDidChange, object: nil)
         NotificationCenter.default.addObserver(self, selector: #selector(updateTheme), name: ThemeDidChangeNotification, object: Theme.self)

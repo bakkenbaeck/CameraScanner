@@ -14,6 +14,12 @@ class ViewController: UIViewController {
         return view
     }()
 
+    lazy var themeChangeBarItem: UIBarButtonItem = {
+        let view = UIBarButtonItem(title: "Change Theme", style: .plain, target: self, action: #selector(ViewController.updateTheme))
+
+        return view
+    }()
+
     lazy var toolbar: UIToolbar = {
         let view = UIToolbar()
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -21,7 +27,8 @@ class ViewController: UIViewController {
         view.tintColor = .white
         view.delegate = self
 
-        view.items = [self.scannBarItem]
+        let space = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        view.items = [self.scannBarItem, space, self.themeChangeBarItem]
 
         return view
     }()
@@ -39,17 +46,17 @@ class ViewController: UIViewController {
     }
 
     func presentScannerController() {
-        let scanner = CameraScanner(types: [.qrCode])
-        let scannerController = ScannerViewController(instructions: "Scan a profile code or QR code", scanner: scanner)
+        let scannerController = ScannerSubclassViewController(instructions: "Scan a profile code or QR code", types: [.qrCode])
         scannerController.delegate = self
 
-        self.present(scannerController, animated: true) {
+        self.present(scannerController, animated: true)
+    }
 
-            // Demo updating current theme on the fly.
-            let deadline: DispatchTime = DispatchTime.now() + Double(Int64(2.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
-            DispatchQueue.main.asyncAfter(deadline: deadline) {
-                Theme.current = Theme(overlayBackgroundColor: .red, overlayBackgroundOpacity: 0.8, instructionsLabelTextColor: .magenta, instructionsLabelTextFont: .boldSystemFont(ofSize: 19))
-            }
+    func updateTheme() {
+        // Demo updating current theme on the fly. Tap Change Theme and quickly tap the camera icon again to see it live updating.
+        let deadline: DispatchTime = DispatchTime.now() + Double(Int64(2.25 * Double(NSEC_PER_SEC))) / Double(NSEC_PER_SEC)
+        DispatchQueue.main.asyncAfter(deadline: deadline) {
+            Theme.current = Theme(overlayBackgroundColor: .red, overlayBackgroundOpacity: 0.8, instructionsLabelTextColor: .magenta, instructionsLabelTextFont: .boldSystemFont(ofSize: 19))
         }
     }
 }

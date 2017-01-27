@@ -167,7 +167,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }
 
     /// Block is executing when a QRCode or when the user did stopped the scan.
-    open var completionBlock: ((String?) -> ())?
+    open var completionBlock: ((String) -> ())?
 
     /**
      Indicates whether the session is currently running.
@@ -248,7 +248,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
     open var session = AVCaptureSession()
 
-    public init(types: [MetadataObjectType]) {
+    public init(types: [MetadataObjectType], completionBlock: ((String) -> ())? = nil) {
         if CameraScanner.isAvailable {
             self.metadataObjectTypes = types.map{ (type) -> String in type.metadataObjectTypeValue }
         } else {
@@ -257,6 +257,7 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
 
         super.init()
 
+        self.completionBlock = completionBlock
         self.configure()
     }
 
@@ -320,9 +321,9 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
         for metadataObject in metadataObjects {
             guard let readableCodeObject = metadataObject as? AVMetadataMachineReadableCodeObject else { continue }
             if self.metadataObjectTypes.contains(readableCodeObject.type) {
-                self.stop()
+                guard let scannedResult = readableCodeObject.stringValue else { continue }
 
-                let scannedResult = readableCodeObject.stringValue
+                self.stop()
 
                 DispatchQueue.main.async { [weak self] in
                     self?.completionBlock?(scannedResult)

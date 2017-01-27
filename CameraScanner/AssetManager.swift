@@ -6,7 +6,7 @@ open class AssetManager {
     }
 
     open class var cameraImage: UIImage? {
-        return UIImage(named: "Camera", in: self.bundle, compatibleWith: nil)
+        return UIImage(named: "CameraSwitch", in: self.bundle, compatibleWith: nil)
     }
 
     open class var cornerImage: UIImage? {
@@ -17,4 +17,3 @@ open class AssetManager {
         return Bundle(for: self)
     }
 }
-
