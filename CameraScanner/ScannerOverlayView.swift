@@ -4,14 +4,14 @@ import AVFoundation
 open class ScannerOverlayView: UIView {
 
     func degreesToRadians(_ degrees: Double) -> Double {
-        return degrees * M_PI / 180.0
+        return degrees * .pi / 180.0
     }
 
     lazy var overlayLayer: CALayer = CALayer()
 
     lazy var cornerTopRightImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
-        view.transform = view.transform.rotated(by: CGFloat(270.0 * M_PI / 180.0))
+        view.transform = view.transform.rotated(by: CGFloat(270.0 * .pi / 180.0))
 
         // We set the restorationIdentifier here to more easily debug and adjust view positioning.
         view.restorationIdentifier = "CornerTopRightImageView"
@@ -22,7 +22,7 @@ open class ScannerOverlayView: UIView {
 
     lazy var cornerTopLeftImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
-        view.transform = view.transform.rotated(by: CGFloat(180.0 * M_PI / 180.0))
+        view.transform = view.transform.rotated(by: CGFloat(180.0 * .pi / 180.0))
 
         // We set the restorationIdentifier here to more easily debug and adjust view positioning.
         view.restorationIdentifier = "CornerTopLeftImageView"
@@ -33,7 +33,7 @@ open class ScannerOverlayView: UIView {
 
     lazy var cornerBottomLeftImageView: UIImageView = {
         let view = UIImageView(image: AssetManager.cornerImage)
-        view.transform = view.transform.rotated(by: CGFloat(90.0 * M_PI / 180.0))
+        view.transform = view.transform.rotated(by: CGFloat(90.0 * .pi / 180.0))
 
         // We set the restorationIdentifier here to more easily debug and adjust view positioning.
         view.restorationIdentifier = "CornerBottomLeftImageView"
