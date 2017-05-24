@@ -233,12 +233,20 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
     }()
 
     open lazy var defaultDeviceInput: AVCaptureDeviceInput? = {
-        return try? AVCaptureDeviceInput(device: self.defaultDevice)
+        do {
+            return try AVCaptureDeviceInput(device: self.defaultDevice)
+        } catch {
+            return nil
+        }
     }()
 
     open lazy var frontDeviceInput: AVCaptureDeviceInput? = {
         if let frontDevice = self.frontDevice {
-            return try? AVCaptureDeviceInput(device: frontDevice)
+            do {
+                return try AVCaptureDeviceInput(device: frontDevice)
+            } catch {
+                return nil
+            }
         }
 
         return nil
@@ -268,8 +276,15 @@ open class CameraScanner: NSObject, AVCaptureMetadataOutputObjectsDelegate {
             self.session.addInput(defaultDeviceInput)
         }
 
+        let availableMetadataObjectTypes: [String] = self.metadataObjectTypes.flatMap { type -> String? in
+            if self.metadataOutput.availableMetadataObjectTypes.contains(where: { available -> Bool in return (available as? String) == type }) {
+                return type
+            }
+            return nil
+        }
+
         self.metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        self.metadataOutput.metadataObjectTypes = self.metadataObjectTypes
+        self.metadataOutput.metadataObjectTypes = availableMetadataObjectTypes
         self.previewLayer?.videoGravity = AVLayerVideoGravityResizeAspectFill
     }
 
