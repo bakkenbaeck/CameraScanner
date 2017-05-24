@@ -132,10 +132,18 @@ open class ScannerViewController: UIViewController {
         super.viewDidAppear(animated)
 
         if self.showAlert {
-            let bundle = Bundle.main
-            let alert = UIAlertController(title: bundle.localizedString(forKey: "Camera_Not_Available_Title", value: nil, table: nil), message: bundle.localizedString(forKey: "Camera_Not_Available_Message", value: nil, table: nil), preferredStyle: .alert)
-            let close = UIAlertAction(title: bundle.localizedString(forKey: "Camera_Not_Available_OK_Button", value: nil, table: nil), style: .cancel)
+            let bundle = Bundle(for: ScannerViewController.self)
+            let alert = UIAlertController(title: bundle.localizedString(forKey: "Camera_Not_Available_Title", value: "Camera not available", table: nil), message: bundle.localizedString(forKey: "Camera_Not_Available_Message", value: "To enable it, tap Settings and enable Camera.", table: nil), preferredStyle: .alert)
+
+            let close = UIAlertAction(title: bundle.localizedString(forKey: "Camera_Not_Available_OK_Button", value: "OK", table: nil), style: .cancel)
+
+            let settings = UIAlertAction(title: bundle.localizedString(forKey: "Camera_Settings_Button", value: "Settings", table: nil), style: .default) { _ in
+                let url = URL(string: UIApplicationOpenSettingsURLString)!
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+
             alert.addAction(close)
+            alert.addAction(settings)
 
             self.present(alert, animated: true)
         }

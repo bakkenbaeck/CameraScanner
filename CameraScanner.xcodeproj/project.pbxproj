@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9F08D5F31ED5B35800C54C12 /* Localisable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F08D5F21ED5B35800C54C12 /* Localisable.strings */; };
-		9F3144E11E35F3340019B304 /* CameraScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3144DF1E35F3340019B304 /* CameraScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F3144E91E35F35E0019B304 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144E81E35F35E0019B304 /* CameraScanner.swift */; };
 		9F3144EB1E35FC890019B304 /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */; };
 		9F3144ED1E35FCEE0019B304 /* Theme.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144EC1E35FCEE0019B304 /* Theme.swift */; };
@@ -23,6 +21,7 @@
 		9F40C0851E3751A7009984D1 /* AssetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F40C0841E3751A7009984D1 /* AssetManager.swift */; };
 		9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9F40C0801E37486D009984D1 /* Buttons.xcassets */; };
 		9F6A91081E3792E600FE5455 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F6A91071E3792E600FE5455 /* UIKit.framework */; };
+		9F6BEB141ED5B7DE005DEA75 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F6BEB121ED5B7DE005DEA75 /* Localizable.strings */; };
 		9FA706211E3768F2004491F8 /* ScannerSubclassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */; };
 		9FA706251E376E2D004491F8 /* Reveal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FA706241E376E2D004491F8 /* Reveal.framework */; };
 /* End PBXBuildFile section */
@@ -52,10 +51,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		9F08D5F21ED5B35800C54C12 /* Localisable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localisable.strings; sourceTree = "<group>"; };
 		9F3144DC1E35F3340019B304 /* CameraScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		9F3144DF1E35F3340019B304 /* CameraScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraScanner.h; sourceTree = "<group>"; };
-		9F3144E01E35F3340019B304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9F3144E81E35F35E0019B304 /* CameraScanner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraScanner.swift; sourceTree = "<group>"; };
 		9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerOverlayView.swift; sourceTree = "<group>"; };
 		9F3144EC1E35FCEE0019B304 /* Theme.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Theme.swift; sourceTree = "<group>"; };
@@ -70,6 +66,8 @@
 		9F40C0801E37486D009984D1 /* Buttons.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Buttons.xcassets; sourceTree = "<group>"; };
 		9F40C0841E3751A7009984D1 /* AssetManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AssetManager.swift; sourceTree = "<group>"; };
 		9F6A91071E3792E600FE5455 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		9F6BEB131ED5B7DE005DEA75 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Localizable.strings; sourceTree = "<group>"; };
+		9F6BEB151ED5B7E5005DEA75 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9FA706201E3768F2004491F8 /* ScannerSubclassViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ScannerSubclassViewController.swift; sourceTree = "<group>"; };
 		9FA706241E376E2D004491F8 /* Reveal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Reveal.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -119,7 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				9F40C0801E37486D009984D1 /* Buttons.xcassets */,
-				9F3144E71E35F3550019B304 /* Resources */,
+				9F6BEB121ED5B7DE005DEA75 /* Localizable.strings */,
 				9F3144E81E35F35E0019B304 /* CameraScanner.swift */,
 				9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */,
 				9F3144EE1E3608DF0019B304 /* ScannerViewController.swift */,
@@ -127,16 +125,6 @@
 				9F40C0841E3751A7009984D1 /* AssetManager.swift */,
 			);
 			path = CameraScanner;
-			sourceTree = "<group>";
-		};
-		9F3144E71E35F3550019B304 /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				9F08D5F21ED5B35800C54C12 /* Localisable.strings */,
-				9F3144DF1E35F3340019B304 /* CameraScanner.h */,
-				9F3144E01E35F3340019B304 /* Info.plist */,
-			);
-			name = Resources;
 			sourceTree = "<group>";
 		};
 		9F3144F51E360E010019B304 /* Demo */ = {
@@ -169,7 +157,6 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F3144E11E35F3340019B304 /* CameraScanner.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -243,6 +230,7 @@
 			knownRegions = (
 				en,
 				Base,
+				de,
 			);
 			mainGroup = 9F3144D21E35F3340019B304;
 			productRefGroup = 9F3144DD1E35F3340019B304 /* Products */;
@@ -260,7 +248,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9F08D5F31ED5B35800C54C12 /* Localisable.strings in Resources */,
+				9F6BEB141ED5B7DE005DEA75 /* Localizable.strings in Resources */,
 				9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -318,6 +306,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		9F6BEB121ED5B7DE005DEA75 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				9F6BEB131ED5B7DE005DEA75 /* de */,
+				9F6BEB151ED5B7E5005DEA75 /* en */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -325,6 +322,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
@@ -379,6 +377,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";

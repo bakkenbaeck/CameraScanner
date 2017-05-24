@@ -7,5 +7,6 @@
 */
 
 "Camera_Not_Available_Title" = "Camera Not Available";
-"Camera_Not_Available_Message" = "Enable camera access in Settings if you wish to use this.";
+"Camera_Not_Available_Message" = "To enable it, tap Settings and enable Camera.";
 "Camera_Not_Available_OK_Button" = "OK";
+"Camera_Settings_Button" = "Settings";
