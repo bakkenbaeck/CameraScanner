@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9F08D5F31ED5B35800C54C12 /* Localisable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9F08D5F21ED5B35800C54C12 /* Localisable.strings */; };
 		9F3144E11E35F3340019B304 /* CameraScanner.h in Headers */ = {isa = PBXBuildFile; fileRef = 9F3144DF1E35F3340019B304 /* CameraScanner.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9F3144E91E35F35E0019B304 /* CameraScanner.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144E81E35F35E0019B304 /* CameraScanner.swift */; };
 		9F3144EB1E35FC890019B304 /* ScannerOverlayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3144EA1E35FC890019B304 /* ScannerOverlayView.swift */; };
@@ -51,6 +52,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		9F08D5F21ED5B35800C54C12 /* Localisable.strings */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; path = Localisable.strings; sourceTree = "<group>"; };
 		9F3144DC1E35F3340019B304 /* CameraScanner.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = CameraScanner.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9F3144DF1E35F3340019B304 /* CameraScanner.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CameraScanner.h; sourceTree = "<group>"; };
 		9F3144E01E35F3340019B304 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -130,6 +132,7 @@
 		9F3144E71E35F3550019B304 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				9F08D5F21ED5B35800C54C12 /* Localisable.strings */,
 				9F3144DF1E35F3340019B304 /* CameraScanner.h */,
 				9F3144E01E35F3340019B304 /* Info.plist */,
 			);
@@ -257,6 +260,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9F08D5F31ED5B35800C54C12 /* Localisable.strings in Resources */,
 				9F40C0861E3754A9009984D1 /* Buttons.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

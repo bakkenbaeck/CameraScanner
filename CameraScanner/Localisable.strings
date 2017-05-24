@@ -1,0 +1,11 @@
+/* 
+  Localisable.strings
+  CameraScanner
+
+  Created by Igor Ranieri on 24.05.17.
+  Copyright © 2017 Bakken&Bæck. All rights reserved.
+*/
+
+"Camera_Not_Available_Title" = "Camera Not Available";
+"Camera_Not_Available_Message" = "Enable camera access in Settings if you wish to use this.";
+"Camera_Not_Available_OK_Button" = "OK";

@@ -27,6 +27,8 @@ open class ScannerViewController: UIViewController {
         return .lightContent
     }
 
+    private var showAlert = false
+
     open var cameraView: ScannerOverlayView
 
     open lazy var cancelItem: UIBarButtonItem = {
@@ -82,15 +84,18 @@ open class ScannerViewController: UIViewController {
      - parameter showSwitchCameraButton: Flag to display the switch camera button.
      - parameter showTorchButton: Flag to display the toggle torch button. If the value is true and there is no torch the button will not be displayed.
      */
-    public required init(instructions: String = "Scan a QR code", types: [MetadataObjectType], startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false) {
+    public required init(instructions: String = "Scan a QR code", types: [MetadataObjectType], startScanningAtLoad startsScanning: Bool = true, showSwitchCameraButton showSwitch: Bool = true, showTorchButton showTorch: Bool = false, alertIfUnavailable: Bool = true) {
         self.startScanningAtLoad = startsScanning
 
         self.cameraScanner = CameraScanner(types: types)
+
         self.cameraView = ScannerOverlayView(cameraLayer: self.cameraScanner.previewLayer ?? CALayer())
 
         super.init(nibName: nil, bundle: nil)
 
         self.instructionsLabel.text = instructions
+
+        self.showAlert = alertIfUnavailable && self.cameraScanner.metadataOutput.metadataObjectTypes.isEmpty
 
         self.cameraScanner.completionBlock = { value in
             self.delegate?.scannerViewController(self, didScanResult: value)
@@ -121,6 +126,20 @@ open class ScannerViewController: UIViewController {
         if self.startScanningAtLoad {
             self.startScanning()
         }
+    }
+
+    open override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+        if self.showAlert {
+            let bundle = Bundle.main
+            let alert = UIAlertController(title: bundle.localizedString(forKey: "Camera_Not_Available_Title", value: nil, table: nil), message: bundle.localizedString(forKey: "Camera_Not_Available_Message", value: nil, table: nil), preferredStyle: .alert)
+            let close = UIAlertAction(title: bundle.localizedString(forKey: "Camera_Not_Available_OK_Button", value: nil, table: nil), style: .cancel)
+            alert.addAction(close)
+
+            self.present(alert, animated: true)
+        }
+
     }
 
     open override func viewWillDisappear(_ animated: Bool) {
